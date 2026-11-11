@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background: #101010;
+    background: #071522;
     color: white;
     font-family: Arial, sans-serif;
 
@@ -25,6 +26,8 @@ body {
 h1 {
     font-size: 35px;
     margin-bottom: 35px;
+    color: #75dcff;
+    text-shadow: 0 0 15px rgba(65, 190, 255, 0.4);
 }
 
 form {
@@ -36,31 +39,37 @@ form {
 input {
     width: 100%;
     padding: 16px;
-    border: 1px solid #444;
+    border: 1px solid #258eaa;
     border-radius: 8px;
-    background: #1d1d1d;
+    background: #102b3b;
     color: white;
     font-size: 16px;
     outline: none;
 }
 
+input::placeholder {
+    color: #91b9c8;
+}
+
 input:focus {
-    border-color: #888;
+    border-color: #5ee6bd;
+    box-shadow: 0 0 10px rgba(60, 230, 180, 0.25);
 }
 
 button {
     padding: 16px;
     border: none;
     border-radius: 8px;
-    background: white;
-    color: black;
+    background: linear-gradient(100deg, #54caff, #43e6a0);
+    color: #06202a;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
 }
 
 button:hover {
-    background: #cccccc;
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(67, 230, 160, 0.35);
 }
 
 button:disabled {
@@ -71,4 +80,6 @@ button:disabled {
 #message {
     margin-top: 20px;
     font-size: 14px;
+    color: #69e6c0;
 }
+
