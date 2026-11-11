@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +15,7 @@ body {
     align-items: center;
 }
 
-/* SECTION ENTRÉE */
+/* ENTRÉE */
 
 .container {
     width: 90%;
@@ -58,6 +57,30 @@ input:focus {
     box-shadow: 0 0 10px rgba(60, 230, 180, 0.25);
 }
 
+/* FOXBYTES */
+
+.foxbytes {
+    padding: 22px;
+    background: #102b3b;
+    border: 1px solid #258eaa;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.foxbytes h2 {
+    color: #69e6c0;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.foxbytes p {
+    color: #c6e2eb;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* BOUTON */
+
 button {
     padding: 16px;
     border: none;
@@ -80,57 +103,12 @@ button:disabled {
     cursor: not-allowed;
 }
 
-#message {
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-/* SECTION FOXBYTES */
-
-.foxbytes {
-    width: 90%;
-    max-width: 420px;
-    margin: 45px auto;
-    padding: 25px;
-    text-align: center;
-    background: #102b3b;
-    border: 1px solid #258eaa;
-    border-radius: 12px;
-}
-
-.foxbytes h2 {
-    color: #69e6c0;
-    margin-bottom: 18px;
-    font-size: 25px;
-}
-
-.foxbytes p {
-    color: #c6e2eb;
-    margin-bottom: 18px;
-    line-height: 1.6;
-}
-
-.foxbytes input {
-    margin-bottom: 15px;
-}
-
-.foxbytes button {
-    width: 100%;
-}
-
-#resultat {
-    display: none;
-    margin-top: 20px;
-    color: #69e6c0;
-    line-height: 1.6;
-}
-
-/* SECTION EXPLICATIVE */
+/* EXPLICATION */
 
 .explication {
     width: 90%;
     max-width: 1000px;
-    margin: 30px auto 40px;
+    margin: 75px auto 40px;
     padding: 35px;
     background: linear-gradient(135deg, #102c3c, #102c2e);
     border: 1px solid #277c80;
@@ -155,16 +133,12 @@ button:disabled {
 
 #messagePleinEcran {
     display: none;
-
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
     min-height: 100vh;
-
     background: #071522;
-
     z-index: 999999;
 
     justify-content: center;
@@ -187,7 +161,7 @@ button:disabled {
     overflow-wrap: anywhere;
 }
 
-/* VERSION MOBILE */
+/* MOBILE */
 
 @media (max-width: 650px) {
 
@@ -209,10 +183,6 @@ button:disabled {
 
     #texteMessage {
         font-size: 25px;
-    }
-
-    .message-contenu {
-        padding: 15px;
     }
 
 }
