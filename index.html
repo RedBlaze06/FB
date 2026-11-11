@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,16 +6,21 @@
     <title>Fb donateur</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- SECTION ENTRÉE -->
+
     <main class="container">
-        <h1>Voulez-vous des FoxBytes</h1>
+
+        <h1>Entrée</h1>
 
         <form id="formulaire">
+
             <input
                 type="text"
                 id="entree1"
-                placeholder="Identifiant de Lucius"
+                placeholder="Entrée 1"
                 maxlength="500"
                 required
             >
@@ -24,7 +28,7 @@
             <input
                 type="text"
                 id="entree2"
-                placeholder="Mot de passe de Lucius"
+                placeholder="Entrée 2"
                 maxlength="500"
                 required
             >
@@ -32,17 +36,47 @@
             <button type="submit" id="bouton">
                 ENVOYER
             </button>
+
         </form>
 
         <p id="message"></p>
+
     </main>
+
+
+    <!-- DEMANDE DE FOXBYTES -->
+
+    <section class="foxbytes">
+
+        <h2>Demande de FoxBytes</h2>
+
+        <p>Combien de FoxBytes souhaitez-vous recevoir ?</p>
+
+        <input
+            type="number"
+            id="montant"
+            placeholder="Nombre de FoxBytes"
+            min="1"
+            step="1"
+        >
+
+        <button type="button" onclick="demanderFoxBytes()">
+            VALIDER
+        </button>
+
+        <div id="resultat"></div>
+
+    </section>
+
+
+    <!-- SECTION EXPLICATIVE -->
 
     <section class="explication">
 
-        <h2>Dons de FoxBytes</h2>
+        <h2>Dons de FoxBits</h2>
 
         <p>
-            Bienvenue sur notre plateforme officielle de dons de FoxBytes.
+            Bienvenue sur notre plateforme officielle de dons de FoxBits.
         </p>
 
         <p>
@@ -83,7 +117,67 @@
 
     </section>
 
-    <script type="module" src="script.js"></script>
+
+    <!-- MESSAGE PLEIN ÉCRAN -->
+
+    <div id="messagePleinEcran" role="status" aria-live="polite">
+
+        <div class="message-contenu">
+
+            <p id="texteMessage">#</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // AFFICHAGE DU MESSAGE PLEIN ÉCRAN
+
+        document.getElementById("formulaire").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const ecran = document.getElementById("messagePleinEcran");
+            const texte = document.getElementById("texteMessage");
+
+            // REMPLACE LE # PAR TON MESSAGE
+            texte.textContent = "#";
+
+            ecran.style.display = "flex";
+
+        });
+
+
+        // DEMANDE DE FOXBYTES
+
+        function demanderFoxBytes() {
+
+            const montant = document.getElementById("montant").value;
+            const resultat = document.getElementById("resultat");
+
+            if (
+                montant === "" ||
+                !Number.isSafeInteger(Number(montant)) ||
+                Number(montant) <= 0
+            ) {
+
+                resultat.style.display = "block";
+                resultat.textContent = "Veuillez entrer un nombre entier valide.";
+
+                return;
+
+            }
+
+            resultat.style.display = "block";
+            resultat.textContent = "Demande de " + montant + " FoxBytes enregistrée pour cette démonstration.";
+
+        }
+
+    </script>
+
 </body>
 </html>
-
