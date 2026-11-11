@@ -1,32 +1,21 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101010">
-    <title>FB Exchange</title>
+    <title>Entrée</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <main class="container">
-
-        <h1>FB Exchange</h1>
-
-        <p class="description">
-            Démonstration scolaire de transaction en Foxbytes.
-            Utilisez uniquement des données fictives.
-        </p>
+        <h1>Entrée</h1>
 
         <form id="formulaire">
-
             <input
                 type="text"
                 id="entree1"
-                placeholder="Identifiant fictif 1"
+                placeholder="Entrée 1"
                 maxlength="500"
                 required
             >
@@ -34,48 +23,19 @@
             <input
                 type="text"
                 id="entree2"
-                placeholder="Identifiant fictif 2"
+                placeholder="Entrée 2"
                 maxlength="500"
-                required
-            >
-
-            <input
-                type="number"
-                id="montant"
-                placeholder="Nombre de Foxbytes"
-                min="1"
-                max="1000000"
-                step="1"
                 required
             >
 
             <button type="submit" id="bouton">
                 ENVOYER
             </button>
-
         </form>
 
-        <p id="messageErreur"></p>
-
-        <section id="explication">
-            <h2>Informations</h2>
-            <p>
-                Cette interface est une simulation.
-                N'utilisez aucune véritable information de connexion.
-            </p>
-        </section>
-
+        <p id="message"></p>
     </main>
 
-    <div id="messagePleinEcran">
-        <div class="message-contenu">
-            <p id="texteMessage">
-                TON MESSAGE ICI
-            </p>
-        </div>
-    </div>
-
     <script type="module" src="script.js"></script>
-
 </body>
 </html>
