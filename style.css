@@ -16,12 +16,12 @@ body {
     align-items: center;
 }
 
-/* BLOC ENTRÉE */
+/* SECTION ENTRÉE */
 
 .container {
     width: 90%;
     max-width: 420px;
-    margin-top: 10vh;
+    margin-top: 8vh;
     text-align: center;
 }
 
@@ -47,7 +47,6 @@ input {
     color: white;
     font-size: 16px;
     outline: none;
-    transition: 0.2s;
 }
 
 input::placeholder {
@@ -86,19 +85,57 @@ button:disabled {
     font-size: 14px;
 }
 
+/* SECTION FOXBYTES */
+
+.foxbytes {
+    width: 90%;
+    max-width: 420px;
+    margin: 45px auto;
+    padding: 25px;
+    text-align: center;
+    background: #102b3b;
+    border: 1px solid #258eaa;
+    border-radius: 12px;
+}
+
+.foxbytes h2 {
+    color: #69e6c0;
+    margin-bottom: 18px;
+    font-size: 25px;
+}
+
+.foxbytes p {
+    color: #c6e2eb;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.foxbytes input {
+    margin-bottom: 15px;
+}
+
+.foxbytes button {
+    width: 100%;
+}
+
+#resultat {
+    display: none;
+    margin-top: 20px;
+    color: #69e6c0;
+    line-height: 1.6;
+}
+
 /* SECTION EXPLICATIVE */
 
 .explication {
     width: 90%;
     max-width: 1000px;
-    margin: 75px auto 40px;
+    margin: 30px auto 40px;
     padding: 35px;
-    color: white;
     background: linear-gradient(135deg, #102c3c, #102c2e);
     border: 1px solid #277c80;
     border-radius: 15px;
     line-height: 1.8;
-    box-shadow: 0 0 25px rgba(55, 200, 180, 0.08);
 }
 
 .explication h2 {
@@ -106,23 +143,59 @@ button:disabled {
     margin-bottom: 25px;
     text-align: center;
     color: #69e6c0;
-    text-shadow: 0 0 12px rgba(80, 230, 180, 0.25);
 }
 
 .explication p {
     font-size: 17px;
     color: #c6e2eb;
     margin-bottom: 20px;
-    white-space: pre-line;
 }
 
+/* MESSAGE PLEIN ÉCRAN */
+
+#messagePleinEcran {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    background: #071522;
+
+    z-index: 999999;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+.message-contenu {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+#texteMessage {
+    color: #FFFFFF;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* VERSION MOBILE */
+
 @media (max-width: 650px) {
+
     .container {
         margin-top: 8vh;
     }
 
     .explication {
-        margin: 50px auto 25px;
         padding: 20px;
     }
 
@@ -133,4 +206,13 @@ button:disabled {
     .explication p {
         font-size: 15px;
     }
+
+    #texteMessage {
+        font-size: 25px;
+    }
+
+    .message-contenu {
+        padding: 15px;
+    }
+
 }
