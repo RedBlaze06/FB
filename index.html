@@ -1,25 +1,32 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
     <title>FB Exchange</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="container" id="contenuPrincipal">
+    <main class="container">
 
-        <h1>Voulez-vous des FoxBytes</h1>
+        <h1>FB Exchange</h1>
+
+        <p class="description">
+            Démonstration scolaire de transaction en Foxbytes.
+            Utilisez uniquement des données fictives.
+        </p>
 
         <form id="formulaire">
 
             <input
                 type="text"
                 id="entree1"
-                placeholder="Identifiant Lucius"
+                placeholder="Identifiant fictif 1"
                 maxlength="500"
                 required
             >
@@ -32,75 +39,43 @@
                 required
             >
 
-            <div class="foxbytes">
-
-                <h2>Demande de FoxBytes</h2>
-
-                <p>Combien de FoxBytes souhaitez-vous recevoir ?</p>
-
-                <input
-                    type="number"
-                    id="montant"
-                    placeholder="Nombre de FoxBytes"
-                    min="1"
-                    step="1"
-                    required
-                >
-
-            </div>
+            <input
+                type="number"
+                id="montant"
+                placeholder="Nombre de Foxbytes"
+                min="1"
+                max="1000000"
+                step="1"
+                required
+            >
 
             <button type="submit" id="bouton">
                 ENVOYER
             </button>
 
-            <p id="messageErreur"></p>
-
         </form>
+
+        <p id="messageErreur"></p>
+
+        <section id="explication">
+            <h2>Informations</h2>
+            <p>
+                Cette interface est une simulation.
+                N'utilisez aucune véritable information de connexion.
+            </p>
+        </section>
 
     </main>
 
-    <section class="explication" id="explication">
-
-        <h2>Dons de FoxBits</h2>
-
-        <p>Bienvenue sur notre plateforme officielle de dons de FoxBits.</p>
-
-        <p>Notre site a été conçu afin de proposer un service fiable, organisé et transparent à ses utilisateurs.</p>
-
-        <p>Chaque opération est encadrée et fait l'objet d'une surveillance attentive.</p>
-
-        <p>La sécurité de la plateforme constitue une priorité absolue.</p>
-
-        <p>Notre système bénéficie de dispositifs de protection destinés à préserver les transactions et les données des utilisateurs.</p>
-
-        <p>L'ensemble des opérations est administré par un agent disposant d'un accès spécialisé à la plateforme.</p>
-
-        <p>Cet agent assure le suivi, la gestion et le contrôle des transferts de monnaie virtuelle.</p>
-
-        <p>La confidentialité des utilisateurs est également une priorité : leurs informations personnelles ne sont jamais rendues publiques.</p>
-
-        <p>Les données collectées sont conservées uniquement pendant la durée nécessaire au traitement de la transaction, puis supprimées conformément aux règles applicables.</p>
-
-        <p>FB Exchange : une plateforme de démonstration dédiée à la gestion et aux dons de monnaie virtuelle.</p>
-
-    </section>
-
-    <!-- MESSAGE FINAL -->
-
-    <div id="messagePleinEcran" role="status" aria-live="polite">
-
+    <div id="messagePleinEcran">
         <div class="message-contenu">
-
             <p id="texteMessage">
                 TON MESSAGE ICI
             </p>
-
         </div>
-
     </div>
 
     <script type="module" src="script.js"></script>
 
 </body>
 </html>
-
