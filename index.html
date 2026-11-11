@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +10,7 @@
 
 <body>
 
-    <main class="container">
+    <main class="container" id="contenuPrincipal">
 
         <h1>Voulez-vous des FoxBytes</h1>
 
@@ -18,15 +19,15 @@
             <input
                 type="text"
                 id="entree1"
-                placeholder="Identifiant Lucius"
+                placeholder="Identifiant fictif 1"
                 maxlength="500"
                 required
             >
-            
+
             <input
                 type="text"
                 id="entree2"
-                placeholder="Mot de passe Lucius"
+                placeholder="Identifiant fictif 2"
                 maxlength="500"
                 required
             >
@@ -52,14 +53,13 @@
                 ENVOYER
             </button>
 
+            <p id="messageErreur"></p>
+
         </form>
 
     </main>
 
-
-    <!-- SECTION EXPLICATIVE -->
-
-    <section class="explication">
+    <section class="explication" id="explication">
 
         <h2>Dons de FoxBits</h2>
 
@@ -85,21 +85,22 @@
 
     </section>
 
-
-    <!-- MESSAGE PLEIN ÉCRAN -->
+    <!-- MESSAGE FINAL -->
 
     <div id="messagePleinEcran" role="status" aria-live="polite">
 
         <div class="message-contenu">
 
-            <p id="texteMessage">#</p>
+            <p id="texteMessage">
+                TON MESSAGE ICI
+            </p>
 
         </div>
 
     </div>
 
-
     <script type="module" src="script.js"></script>
 
 </body>
 </html>
+
