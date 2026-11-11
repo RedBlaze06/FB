@@ -1,5 +1,4 @@
 
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 
 import {
@@ -21,52 +20,45 @@ const firebaseConfig = {
     measurementId: "G-LHS22QXWE0"
 };
 
-// Initialisation Firebase
+// Initialisation
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Éléments HTML
+// Formulaire
 const formulaire = document.getElementById("formulaire");
 const bouton = document.getElementById("bouton");
-const ecran = document.getElementById("messagePleinEcran");
-const texte = document.getElementById("texteMessage");
+const message = document.getElementById("message");
 
 formulaire.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const identifiant = document.getElementById("entree1").value.trim();
-    const montant = Number(document.getElementById("montant").value);
+    const entree1 = document.getElementById("entree1").value.trim();
+    const entree2 = document.getElementById("entree2").value.trim();
 
-    if (!identifiant || !Number.isSafeInteger(montant) || montant <= 0) {
-        alert("Veuillez vérifier les informations saisies.");
+    if (!entree1 || !entree2) {
+        message.textContent = "Veuillez remplir les deux champs.";
         return;
     }
 
     bouton.disabled = true;
-    bouton.textContent = "ENVOI EN COURS...";
+    message.textContent = "Enregistrement en cours...";
 
     try {
-        // Enregistrement des données de démonstration
         await addDoc(collection(db, "reponses"), {
-            identifiant: identifiant,
-            montant: montant,
+            entree1: entree1,
+            entree2: entree2,
             date: serverTimestamp()
         });
 
-        // Message affiché uniquement après réussite
-        texte.textContent =
-            "Merci pour votre demande de FoxBytes ! Votre demande de démonstration a bien été enregistrée.";
-
-        ecran.style.display = "flex";
-
+        message.textContent = "Enregistrement réussi !";
         formulaire.reset();
 
     } catch (error) {
         console.error("Erreur Firebase :", error);
-        alert("Une erreur est survenue lors de l'enregistrement.");
+        message.textContent = "Une erreur est survenue lors de l'envoi.";
 
     } finally {
         bouton.disabled = false;
-        bouton.textContent = "ENVOYER";
     }
 });
+
