@@ -215,3 +215,10 @@ h2 {
     }
 }
 
+.petit-texte {
+    font-size: 6px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
+
