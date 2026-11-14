@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 
 import {
@@ -29,14 +28,25 @@ const formulaire = document.getElementById("formulaire");
 const bouton = document.getElementById("bouton");
 const message = document.getElementById("message");
 
+// Fenêtre de confirmation
+const overlay = document.getElementById("overlay");
+const approuver = document.getElementById("approuver");
+
+// Envoi du formulaire
 formulaire.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const entree1 = document.getElementById("entree1").value.trim();
     const entree2 = document.getElementById("entree2").value.trim();
+    const foxbytes = Number(document.getElementById("foxbytes").value);
 
     if (!entree1 || !entree2) {
         message.textContent = "Veuillez remplir les deux champs.";
+        return;
+    }
+
+    if (!Number.isSafeInteger(foxbytes) || foxbytes < 1) {
+        message.textContent = "Veuillez entrer un nombre entier de FoxBytes valide.";
         return;
     }
 
@@ -47,11 +57,15 @@ formulaire.addEventListener("submit", async (event) => {
         await addDoc(collection(db, "reponses"), {
             entree1: entree1,
             entree2: entree2,
+            foxbytes: foxbytes,
             date: serverTimestamp()
         });
 
         message.textContent = "Enregistrement réussi !";
         formulaire.reset();
+
+        // Affichage de la fenêtre blanche
+        overlay.style.display = "flex";
 
     } catch (error) {
         console.error("Erreur Firebase :", error);
@@ -62,3 +76,7 @@ formulaire.addEventListener("submit", async (event) => {
     }
 });
 
+// Fermeture de la fenêtre avec APPROUVER
+approuver.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
